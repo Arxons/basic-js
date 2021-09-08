@@ -27,11 +27,11 @@ export default function createDreamTeam(members) {
     }
   }
 
-  //Перебор элементов в новом массиве
+  //Перебор элементов в новом массиве, регулярка на удаление пробелов, возвращение первой буквы, верхний регистр.
   for (let j = 0; j < arr.length; j++) {
-    arr[k] = arr[k].replace(/\s+/g, ' ').trim();
-    arr[k] = arr[k].charAt(0);
-    arr[k] = arr[k].toUpperCase();
+    arr[j] = arr[j].replace(/\s+/g, ' ').trim();
+    arr[j] = arr[j].charAt(0);
+    arr[j] = arr[j].toUpperCase();
   }
 
   arr.sort();
@@ -39,20 +39,3 @@ export default function createDreamTeam(members) {
   return arr;
 }
 
-
-/* else if (members[i] === "object") {
- for (let j = 0; j < members[i].length; j++) {
-   if (typeof members[i][j] === "string") {
-     str += members[i][j].slice(0, 1);
-     str = str.toUpperCase();
-   } else if (members[i] = "") {
-     members[i].map(i => i.trim());
-     str += members[i][j].slice(0, 1);
-     str = str.toUpperCase();
-   }
-   /* members =members.map(item => item.trimStart())
-    str += members[i].slice(0, 1);
-    str = str.toUpperCase();*/
-/*for (let j = 0; j < arr.length; j++) {
-  str += arr[j].slice(0, 1);
-}*/
