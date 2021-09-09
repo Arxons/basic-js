@@ -24,20 +24,20 @@ export default function transform(arr) {
   }
 
   for (let j = 0; j < newArr.length; j++) {
-    if (newArr[j] === "--double-next") {
+    if (newArr[j] === "--double-next" && j !== newArr.length - 1) {
       newArr[j] = newArr[j + 1];
-    } else if (newArr[j] === "--double-prev") {
+    } else if (newArr[j] === "--double-prev" && j !== 0 && !(newArr[j - 2] === '--discard-next')) {
       newArr[j] = newArr[j - 1];
-    } else if (newArr[j] === "--discard-prev") {
+    } else if (newArr[j] === "--discard-prev" && j !== 0 && !(newArr[j - 2] === '--discard-next')) {
       newArr.splice(j - 1, 2);
-    } else if (newArr[j] === "--discard-next") {
+    } else if (newArr[j] === "--discard-next" && j !== newArr.length - 1) {
       newArr.splice(j, 2);
     }
 
   }
 
   for (let n = 0; n < newArr.length; n++) {
-    if (newArr[n] === "--discard-prev" || newArr[n] === "--discard-next" || newArr[n] === "--double-next" || newArr[n] === "--double-prev") {
+    if (newArr[n] === "--discard-prev" || newArr[n] === "--discard-next" || newArr[n] === "--double-next" || newArr[n] === "--double-prev" || newArr[n] === undefined) {
       newArr.splice(n, 1);
     }
   }
