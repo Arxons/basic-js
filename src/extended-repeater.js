@@ -19,10 +19,15 @@ export default function repeater(str, options) {
   str = String(str);
   let arr = [];
   let newArr = [];
-  /*if (!options.additionRepeatTimes) options.additionRepeatTimes = 1;
+
+
+  if (!options.additionRepeatTimes) options.additionRepeatTimes = 1;
   if (!options.repeatTimes) options.repeatTimes = 1;
-  if (options.addition === null) options.addition = "null";
-  if (!options.additionSeparator) options.additionSeparator = "|";*/
+  if (options.addition === null) { options.addition = "null"; }
+  if (!options.additionSeparator) options.additionSeparator = "|";
+  if (!options.separator) options.separator = "+";
+
+
   arr.push(str);
   for (let i = 0; i < options.additionRepeatTimes; i++) {
     arr.push(options.addition);
